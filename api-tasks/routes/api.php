@@ -20,11 +20,10 @@ Route::get('/user', function () {
 });
 
 Route::get('/tasks', [App\Http\Controllers\TaskController::class, 'index']);
-
 Route::post('/tasks', [App\Http\Controllers\TaskController::class, 'cadastro']);
-
-Route::put('/tasks/delete/{id}', [App\Http\Controllers\TaskController::class, 'delete']);
+Route::delete('/tasks/delete/{id}', [App\Http\Controllers\TaskController::class, 'delete']);
 Route::put('/tasks/atualiza/{id}', [App\Http\Controllers\TaskController::class, 'atualiza']);
-Route::put('/tasks/detalhes/{id}', [App\Http\Controllers\TaskController::class, 'detalhes']);
+
+
 
 

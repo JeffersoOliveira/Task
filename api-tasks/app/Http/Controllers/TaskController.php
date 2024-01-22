@@ -15,11 +15,6 @@ class TaskController extends Controller
         return TaskResource::collection($tasks);
     }
 
-    public function detalhes($id)
-    {
-        $task = Task::findOrFail($id);
-        print_r($task);
-    }
 
     public function cadastro(Request $request)
     {
@@ -36,13 +31,11 @@ class TaskController extends Controller
 
     public function delete($id)
     {
-//        $task = Task::where('id', $id)->first();
+        $task = new Task();
         $task = Task::findOrFail($id);
-        print_r($task);
 
-        if( $task->delete() ){
-            return response()->json('', 204);
-        };
+        $task->delete();
+        return response()->json('', 204);
 
     }
 
